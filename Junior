@@ -1,0 +1,191 @@
+<?php
+// Tableau T
+$T
+= [
+construit à partir d'un mot-clé (remplacez par votre propre logique)
+['A',
+'B'
+['C', 'k',
+1:
+'C'
+'E',
+'D', 'E', 'F', 'G', 'H', 'I', '3', 'K', 'L', 'M', 'N',
+'°', 'p',
+Y', 'B', 'A', 'D', 'F', G', 'H', 'I', '', 'l', °M', °N°
+'°',
+'Q'
+'P',
+T',
+'T',
+7
+// Variable pour stocker le résultat du chiffrement/déchiffrement
+9
+$resultat = "";
+10
+11
+12
+13
+14
+Il Vérifie si le formulaire a été soumis
+if ($_SERVER[ "REQUEST _METHOD"] == "POST") {
+// Récupère les données du formulaire
+Smessage = strtoupper ($_POST ["message"]);
+15
+16
+17
+18
+19
+20
+// Vérifie si l'utilisateur souhaite chiffrer ou déchiffrer
+if (isset ($_POST[ "decrypt"])) {
+$resultat = dechiffrerLordGarnet (Smessage, $T);
+} else {
+$resultat = chiffrerLordGarnet ($message, $T);
+21
+22
+｝
+23
+24
+25
+26
+// Fonction de chiffrement Lord Garnet
+function chiffrerLordGarnet ($message, $T) f
+$messageChiffre = "";
+27
+28
+29
+30
+// Parcours chaque
+caractère du message
+for ($i = 0; $i ‹ strlen (Smessage); $i++) {
+$char = $message[$i];
+31
+32
+33
+// Recherche de la position du caractère dans la première ligne du tableau T
+$pos = array_search ($char, $T[0]);
+34
+35
+36
+/l Si le caractère est trouvé, ajoute le caractère correspondant de la deuxième ligne au message chiffré
+if (Spos 1== false
+Ln 153, Col 1
+00Д0
+20
+26°C
+Rechercher
+Très ensoleillé
+Spaces:4
+08
+'V',
+'U',
+'W' ;
+'V',
+X', 'Y', 'z'],
+'W', 'X',
+UTF-8
+Il Si le caractère n'est pas trouvé (par exemple, espace), le laisse tel quel
+§messageChiffre .= Schar;
+return $messageChiffre;
+11 Fonction de déchiffrement Lord Garnet
+function dechiffrerLordGarnet ($messageChiffre, $T) {
+§messageDechiffre = "";
+// Parcours chaque caractère du message chiffré
+for ($i = 0; $i ‹ strlen ($messageChiffre); $i++) {
+$char = $messageChiffre[$il;
+// Recherche de la position du caractère dans la deuxième ligne du tableau T
+Spos = array_search (Schar, $T[1]);
+// Si le caractère est trouvé, ajoute le caractère correspondant de la première ligne au message déchiffré
+if (Spos !== false) {
+§messageDechiffre .= $T[0][$pos];
+else {
+// Si le caractère n'est pas trouvé (par exemple, espace), le laisse tel quel
+$messageDechiffre •= Schar;
+return $messageDechiffre;
+‹!DOCTYPE html>
+<html lang="en">
+<head>
+<meta
+charset="'UTF-8"> 
+‹meta charset="UTF-8"›
+75
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+76
+<title>Chiffrement et Dechiffrement- Lond Garnet</title>
+77
+‹style>
+78
+body {
+79
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+80
+margin: 50px;
+81
+background-color: #f5f5f5;
+82
+text-align: center;
+83
+84
+85
+h2 {
+86
+color: #333;
+87
+}
+88
+89
+90
+91
+92
+93
+94
+95
+form {
+max-width: 400px; margin: 20px auto; background-color: #fff;
+padding: 20px; border-radius: 8px;
+box-shadow: 0 e 1epx rgba(0, 0, 0, 0.1) ;
+96
+97
+98
+99
+100
+101
+label {
+display: block; margin-bottom:
+8px;
+color: #333;
+102
+103
+104
+105
+106
+107
+input[type="text"] f
+width: 100%;
+padding: 10px; margin-bottom: 16px; box-sizing: border-box;
+transition: background-color 0.3s ease;
+input[type="submit"]:hover,
+input[type="button"]:hover {
+background-color: #0056b3;
+font-size: 18px;
+color:
+#555;
+margin-top: 20px;
+}
+</style>
+< head> ‹body> <h2>Chiffrement et Déchiffrement - Lord Garnet</h2>
+‹form method="post"
+action="<?php echo $_SERVER[ 'PHP _SELF']; ?›">
+‹label for="message" ›Entrer le message :</label›
+‹input type="text" name="message" required>
+< input type="submit" value="Chiffrer"
+‹input type="submit" name="decrypt" value="Déchiffrer"›
+<h2>Résultat</h2›
+‹?php if
+(lempty (Sresultat)): ?›
+‹p›Résultat : <?php echo resultat; ?></p›
+<?php
+endif; ?>
+</body>
+</html>
